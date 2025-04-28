@@ -1,12 +1,44 @@
+
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, FileText, FileSpreadsheet, Brain, Gauge, LineChart, Target, LayoutDashboard } from "lucide-react";
+import { 
+  ArrowRight, 
+  Check, 
+  FileText, 
+  FileSpreadsheet, 
+  Brain, 
+  Gauge, 
+  LineChart, 
+  Target, 
+  LayoutDashboard,
+  BarChart, // Changed from BarChart2
+  Database as DatabaseIcon, // Aliased to avoid conflict
+  Clock as ClockIcon, // Aliased as ClockIcon
+  ShieldCheck, // Changed from Shield
+  Award as AwardIcon, // Aliased as AwardIcon
+  ServerStack // Changed from Server
+} from "lucide-react";
 import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
 
 const FITScoreAgent = () => {
+  // Add state for demo email form
+  const [demoEmail, setDemoEmail] = useState("");
+  
+  // Add handleDemoRequest function
+  const handleDemoRequest = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send this to your backend
+    console.log("Demo requested with email:", demoEmail);
+    // Clear the form
+    setDemoEmail("");
+    // You could also show a success message with a toast
+    alert("Demo request submitted successfully!");
+  };
+
   return (
     <>
       <Helmet>
@@ -235,7 +267,7 @@ const FITScoreAgent = () => {
                 <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
                     <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <BarChart2 className="h-6 w-6 text-purple-500" />
+                      <BarChart className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Comprehensive Scoring</h3>
                     <p className="text-gray-600 dark:text-gray-400">
@@ -259,7 +291,7 @@ const FITScoreAgent = () => {
                 <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
                     <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Database className="h-6 w-6 text-purple-500" />
+                      <DatabaseIcon className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Bulk Processing</h3>
                     <p className="text-gray-600 dark:text-gray-400">
@@ -271,7 +303,7 @@ const FITScoreAgent = () => {
                 <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
                     <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-purple-500" />
+                      <ClockIcon className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Instant Results</h3>
                     <p className="text-gray-600 dark:text-gray-400">
@@ -283,7 +315,7 @@ const FITScoreAgent = () => {
                 <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
                     <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Shield className="h-6 w-6 text-purple-500" />
+                      <ShieldCheck className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Bias Mitigation</h3>
                     <p className="text-gray-600 dark:text-gray-400">
@@ -404,7 +436,7 @@ const FITScoreAgent = () => {
                 <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-white dark:bg-gray-800 rounded-full">
-                      <Award className="h-6 w-6 text-purple-500" />
+                      <AwardIcon className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="font-bold text-xl ml-3">ATS Integration</h3>
                   </div>
@@ -424,7 +456,7 @@ const FITScoreAgent = () => {
                 <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-white dark:bg-gray-800 rounded-full">
-                      <Server className="h-6 w-6 text-purple-500" />
+                      <ServerStack className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="font-bold text-xl ml-3">Recruitment Agencies</h3>
                   </div>
