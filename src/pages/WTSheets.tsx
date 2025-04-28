@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
@@ -13,7 +12,7 @@ import {
   FileSpreadsheet, 
   Search,
   Zap,
-  LineChart2,
+  LineChart as LineChartIcon,
   ArrowRight,
   Check 
 } from "lucide-react";
@@ -101,13 +100,13 @@ const WTSheets = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {[
                   { icon: ClipboardList, name: "AI-Generated Hiring Forms", description: "Input a job description; our Question API auto-generates relevant screening questions. Get a shareable form link instantly." },
-                  { icon: LineChart, name: "Automated Resume Ranking (FIT Score)", description: "Our FIT Score API instantly scores resume alignment with the JD. Sort candidates by relevance directly in Sheets." },
+                  { icon: LineChartIcon, name: "Automated Resume Ranking (FIT Score)", description: "Our FIT Score API instantly scores resume alignment with the JD. Sort candidates by relevance directly in Sheets." },
                   { icon: FileText, name: "Intelligent Resume Data Extraction", description: "The Resume Parser API automatically extracts skills, experience, education, etc., structuring it neatly in your sheet." },
                   { icon: Brain, name: "AI-Powered Candidate Evaluation", description: "Our Evaluation API scores candidate responses to form questions, providing another layer of data for ranking." },
                   { icon: FileSpreadsheet, name: "Centralized Data in Google Sheets", description: "All candidate info, scores, and extracted data are automatically organized in one accessible Google Sheet." },
                   { icon: Search, name: "Advanced Search & Filtering", description: "Instantly filter and search candidates within Sheets using AI-extracted data points (skills, experience, scores)." },
                   { icon: Zap, name: "Boost Productivity by 2x", description: "Eliminate manual sorting, data entry, and initial screening tasks, significantly speeding up your hiring cycle." },
-                  { icon: LineChart2, name: "Data-Driven Hiring Decisions", description: "Leverage objective AI scores and structured data for more informed and less biased candidate selection." }
+                  { icon: LineChartIcon, name: "Data-Driven Hiring Decisions", description: "Leverage objective AI scores and structured data for more informed and less biased candidate selection." }
                 ].map((feature, idx) => (
                   <Card key={idx} className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                     <CardContent className="pt-6">
