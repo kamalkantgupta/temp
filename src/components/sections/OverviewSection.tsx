@@ -1,5 +1,5 @@
 
-import { ArrowRightCircle, Brain, Target, BarChart } from "lucide-react";
+import { Brain, Target, BarChart, ArrowRightCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface OverviewSectionProps {
