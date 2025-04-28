@@ -386,7 +386,7 @@ const FITScoreAgent = () => {
                     </div>
                     <div className="ml-4">],</div>
                     <div className="ml-4">
-                      <span className="text-purple-400">"details"</span>: {...}
+                      <span className="text-purple-400">"details"</span>: {"{}"}
                     </div>
                     <div className="text-gray-100">{'}'}</div>
                   </div>
