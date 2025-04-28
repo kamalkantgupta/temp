@@ -48,10 +48,10 @@ const OverviewSection = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {features.map((feature, index) => (
-            <Card key={index} className="border border-purple-100 dark:border-purple-900/50 hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="border-none bg-purple-50/50 dark:bg-purple-900/5 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
-                <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                  <feature.icon className="h-6 w-6 text-purple-500" />
+                <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                  <feature.icon className="h-6 w-6 text-purple-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
                   {feature.title}

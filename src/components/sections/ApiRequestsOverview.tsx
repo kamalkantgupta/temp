@@ -33,16 +33,16 @@ const ApiRequestsOverview = ({
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {apis.map((api, index) => (
-            <Card key={index} className="overflow-hidden border-purple-100 dark:border-purple-900/50 hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="overflow-hidden border-none bg-purple-50/50 dark:bg-purple-900/5 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-900/30">
-                    <FileCode className="h-6 w-6 text-purple-500" />
+                  <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30">
+                    <FileCode className="h-6 w-6 text-purple-600" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{api.name}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">{api.description}</p>
-                    <div className="space-y-2 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg text-sm">
+                    <div className="space-y-2 bg-white dark:bg-gray-900/50 p-4 rounded-lg text-sm">
                       <div>
                         <span className="font-medium text-gray-700 dark:text-gray-300">Input:</span>
                         <span className="ml-2 text-gray-600 dark:text-gray-400">{api.input}</span>
