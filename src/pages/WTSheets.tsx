@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
@@ -5,7 +6,7 @@ import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
 import InternalHeroSection from "@/components/InternalHeroSection";
 import KeyFeaturesSection from "@/components/KeyFeaturesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
-import { FormIcon, FileSpreadsheet, FileText, Check, Brain, Database, Search, Activity } from "lucide-react";
+import { ClipboardList, FileSpreadsheet, FileText, Check, Brain, Database, Search, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Clock, Upload, MessageCircle, Server, Shield } from "lucide-react";
@@ -22,7 +23,7 @@ const wtSheetsData = {
   },
   keyFeatures: [
     {
-      icon: FormIcon,
+      icon: ClipboardList,
       name: "AI-Generated Hiring Forms",
       description: "Input a job description; our Question API auto-generates relevant screening questions. Get a shareable form link instantly."
     },
