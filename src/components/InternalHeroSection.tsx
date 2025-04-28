@@ -39,7 +39,7 @@ const InternalHeroSection = ({
             >
               {tagText}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
               {headline}
             </h1>
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
