@@ -25,22 +25,22 @@ const ApiRequestsOverview = ({
   cta,
 }: ApiRequestsOverviewProps) => {
   return (
-    <section className="w-full py-16 bg-gradient-to-br from-purple-50/50 to-white dark:from-gray-900 dark:to-gray-950">
+    <section className="w-full py-16 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">{title}</h2>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">{title}</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {apis.map((api, index) => (
-            <Card key={index} className="overflow-hidden border-purple-100 dark:border-purple-900/50">
+            <Card key={index} className="overflow-hidden border-purple-100 dark:border-purple-900/50 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-900/30">
-                    <FileCode className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                    <FileCode className="h-6 w-6 text-purple-500" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-2">{api.name}</h3>
+                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{api.name}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">{api.description}</p>
                     <div className="space-y-2 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg text-sm">
                       <div>
@@ -62,7 +62,7 @@ const ApiRequestsOverview = ({
         <div className="text-center mt-12">
           <Button
             size="lg"
-            className="bg-purple-600 hover:bg-purple-700"
+            className="bg-purple-500 hover:bg-purple-600"
             asChild
           >
             <a href={cta.link}>

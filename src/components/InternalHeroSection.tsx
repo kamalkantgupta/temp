@@ -30,7 +30,7 @@ const InternalHeroSection = ({
   children
 }: InternalHeroProps) => {
   return (
-    <section className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in-up">
@@ -39,10 +39,10 @@ const InternalHeroSection = ({
             >
               {tagText}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
               {headline}
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
               {subheadline}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -51,7 +51,7 @@ const InternalHeroSection = ({
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               {secondaryCta && (
-                <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">
+                <Button variant="outline" className="border-purple-200 text-purple-600 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-400 dark:hover:bg-purple-900/20">
                   {secondaryCta.text}
                 </Button>
               )}

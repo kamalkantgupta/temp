@@ -35,13 +35,13 @@ const OverviewSection = ({
   ];
 
   return (
-    <section className="w-full py-16 bg-gradient-to-br from-purple-50 to-white dark:from-gray-950 dark:to-gray-900">
+    <section className="w-full py-16 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
             {title}
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             {description}
           </p>
         </div>
@@ -53,7 +53,7 @@ const OverviewSection = ({
                 <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
                   <feature.icon className="h-6 w-6 text-purple-500" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
