@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
@@ -20,6 +19,9 @@ import {
   Cloud
 } from "lucide-react";
 import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
+import ApiRequestsOverview from "@/components/sections/ApiRequestsOverview";
+import UseCasesSection from "@/components/sections/UseCasesSection";
+import OverviewSection from "@/components/sections/OverviewSection";
 
 const FITScoreAgent = () => {
   const [demoEmail, setDemoEmail] = useState("");
@@ -90,6 +92,40 @@ const FITScoreAgent = () => {
       docLink: "/docs/fit-score#evaluate-resume"
     }
   ];
+
+  const apiRequestsOverview = {
+    title: "API at a Glance",
+    apis: [
+      {
+        name: "1. Create FIT Job ID",
+        description: "Analyzes the Job Description to establish matching criteria.",
+        input: "Job Description (text)",
+        output: "`fitJobId` (string)"
+      },
+      {
+        name: "2. Evaluate Resume",
+        description: "Scores a resume against the pre-processed Job Description.",
+        input: "`fitJobId` (string), Resume (URL or text)",
+        output: "FIT Score (int), Pros (list), Cons (list), Details (object)"
+      }
+    ],
+    cta: {
+      text: "Dive into the Documentation",
+      link: "/docs/fit-score"
+    }
+  };
+
+  const useCases = {
+    title: "Powering Efficient Recruitment Workflows",
+    items: [
+      "ATS Platforms: Enhance built-in matching capabilities.",
+      "HR & Recruitment Agencies: Accelerate candidate shortlisting.",
+      "Job Boards: Offer enhanced job matching for seekers.",
+      "Internal Hiring Tools: Improve talent discovery within organizations.",
+      "Career Services & Resume Builders: Provide resume optimization feedback."
+    ],
+    integrationBenefit: "Easy to integrate AI APIs for ATS, hiring automation platforms, and job platforms."
+  };
 
   return (
     <>
@@ -163,16 +199,13 @@ const FITScoreAgent = () => {
           </section>
 
           {/* Overview Section */}
-          <section className="w-full py-16 bg-white dark:bg-gray-950">
-            <div className="container mx-auto px-4 md:px-6">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-4">Stop Guessing, Start Scoring: AI-Powered Candidate Matching</h2>
-                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-                  Overwhelmed by resume volume? The Whitetable FIT Score Agent cuts through the noise. Our AI analyzes resumes against your specific job descriptions, delivering an objective FIT Score (0-100) plus actionable insights on candidate strengths and gaps. Automate screening, focus on top contenders, and make data-driven hiring decisions with confidence.
-                </p>
-              </div>
-            </div>
-          </section>
+          <OverviewSection
+            title="Stop Guessing, Start Scoring: AI-Powered Candidate Matching"
+            description="Overwhelmed by resume volume? The Whitetable FIT Score Agent cuts through the noise. Our AI analyzes resumes against your specific job descriptions, delivering an objective FIT Score (0-100) plus actionable insights on candidate strengths and gaps. Automate screening, focus on top contenders, and make data-driven hiring decisions with confidence."
+          />
+
+          {/* API Overview Section */}
+          <ApiRequestsOverview {...apiRequestsOverview} />
 
           {/* How It Works */}
           <section className="w-full py-16 bg-blue-50 dark:bg-gray-900">
@@ -229,29 +262,7 @@ const FITScoreAgent = () => {
           </section>
 
           {/* Use Cases */}
-          <section className="w-full py-16 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800">
-            <div className="container mx-auto px-4 md:px-6">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-4">Powering Efficient Recruitment Workflows</h2>
-                <div className="max-w-3xl mx-auto">
-                  <ul className="space-y-4 text-left">
-                    {[
-                      "ATS Platforms: Enhance built-in matching capabilities.",
-                      "HR & Recruitment Agencies: Accelerate candidate shortlisting.",
-                      "Job Boards: Offer enhanced job matching for seekers.",
-                      "Internal Hiring Tools: Improve talent discovery within organizations.",
-                      "Career Services & Resume Builders: Provide resume optimization feedback."
-                    ].map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <ArrowRight className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 dark:text-gray-300">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
+          <UseCasesSection {...useCases} />
 
           {/* Developer Focus */}
           <section className="w-full py-16 bg-white dark:bg-gray-950">
