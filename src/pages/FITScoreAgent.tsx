@@ -3,11 +3,10 @@ import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { FileCode, Brain, ArrowRight } from "lucide-react";
+import { Brain, ArrowRight, Check } from "lucide-react";
 import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
 import ApiRequestsOverview from "@/components/sections/ApiRequestsOverview";
 import UseCasesSection from "@/components/sections/UseCasesSection";
-import OverviewSection from "@/components/sections/OverviewSection";
 
 const FITScoreAgent = () => {
   const apiRequestsOverview = {
@@ -35,13 +34,13 @@ const FITScoreAgent = () => {
   const useCases = {
     title: "Powering Efficient Recruitment Workflows",
     items: [
-      "ATS Platforms: Enhance built-in matching capabilities.",
-      "HR & Recruitment Agencies: Accelerate candidate shortlisting.",
-      "Job Boards: Offer enhanced job matching for seekers.",
-      "Internal Hiring Tools: Improve talent discovery within organizations.",
-      "Career Services & Resume Builders: Provide resume optimization feedback."
+      "ATS Platforms: Enhance built-in matching capabilities",
+      "HR & Recruitment Agencies: Accelerate candidate shortlisting",
+      "Job Boards: Offer enhanced job matching for seekers",
+      "Internal Hiring Tools: Improve talent discovery within organizations",
+      "Career Services & Resume Builders: Provide resume optimization feedback"
     ],
-    integrationBenefit: "Easy to integrate AI APIs for ATS, hiring automation platforms, and job platforms."
+    integrationBenefit: "Easy to integrate AI APIs for ATS, hiring automation platforms, and job platforms"
   };
 
   return (
@@ -54,12 +53,12 @@ const FITScoreAgent = () => {
         />
       </Helmet>
 
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950">
         <NavbarWrapper />
         
         <main className="flex-grow">
           {/* Hero Section */}
-          <section className="w-full py-20 md:py-32 bg-white dark:bg-gray-950">
+          <section className="w-full py-20 md:py-32">
             <div className="container mx-auto px-4 md:px-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8">
@@ -80,30 +79,28 @@ const FITScoreAgent = () => {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="p-8 rounded-2xl bg-purple-50/50 dark:bg-purple-900/5 backdrop-blur-xl border border-purple-100/20 shadow-lg">
+                  <div className="p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
                     <div className="space-y-6">
-                      <div className="flex items-center justify-center gap-6">
-                        <div className="text-center">
-                          <FileCode className="h-12 w-12 text-purple-600 mx-auto mb-2" />
-                          <span className="text-sm">Resume</span>
-                        </div>
-                        <div className="relative">
-                          <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
-                            <Brain className="h-8 w-8 text-purple-600" />
+                      <div className="flex items-center justify-between gap-6">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-purple-100">
+                            <Check className="h-5 w-5 text-purple-600" />
                           </div>
-                          <div className="absolute inset-0 bg-purple-500/5 rounded-full animate-ping"></div>
+                          <span className="text-sm font-medium">Resume Uploaded</span>
                         </div>
-                        <div className="text-center">
-                          <FileCode className="h-12 w-12 text-purple-600 mx-auto mb-2" />
-                          <span className="text-sm">Job Description</span>
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-purple-100">
+                            <Check className="h-5 w-5 text-purple-600" />
+                          </div>
+                          <span className="text-sm font-medium">Job Description Added</span>
                         </div>
                       </div>
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-purple-400/20 rounded-xl blur-xl"></div>
-                        <div className="relative bg-white/90 dark:bg-gray-800/90 p-6 rounded-xl shadow-lg">
+                        <div className="relative bg-white p-6 rounded-xl shadow-sm border border-purple-100">
                           <div className="text-center">
                             <div className="text-5xl font-bold text-purple-600 mb-2">87</div>
-                            <div className="text-gray-600 dark:text-gray-400">FIT Score</div>
+                            <div className="text-gray-600">FIT Score</div>
                           </div>
                         </div>
                       </div>
@@ -114,12 +111,6 @@ const FITScoreAgent = () => {
             </div>
           </section>
 
-          {/* Overview Section */}
-          <OverviewSection
-            title="Stop Guessing, Start Scoring"
-            description="Get instant AI-powered analysis of how well resumes match your job requirements. Our smart algorithms help you make data-driven hiring decisions with confidence."
-          />
-
           {/* API Overview Section */}
           <ApiRequestsOverview {...apiRequestsOverview} />
 
@@ -127,9 +118,9 @@ const FITScoreAgent = () => {
           <UseCasesSection {...useCases} />
 
           {/* Final CTA */}
-          <section className="w-full py-16 bg-purple-600 text-white">
+          <section className="w-full py-16 bg-purple-600">
             <div className="container mx-auto px-4 md:px-6 text-center">
-              <h2 className="text-3xl font-bold mb-4">Transform Your Candidate Screening Process Today</h2>
+              <h2 className="text-3xl font-bold mb-4 text-white">Transform Your Candidate Screening Process Today</h2>
               <p className="text-purple-100 text-xl max-w-2xl mx-auto mb-8">
                 Leverage AI to identify the best-fit candidates faster and more accurately.
               </p>
