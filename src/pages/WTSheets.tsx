@@ -1,66 +1,125 @@
-
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
+import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
+import InternalHeroSection from "@/components/InternalHeroSection";
+import KeyFeaturesSection from "@/components/KeyFeaturesSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import { FormIcon, FileSpreadsheet, FileText, Check, Brain, Database, Search, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, FileSpreadsheet, Brain, Zap, BarChart2, Clock, Upload, MessageCircle, Server, FileText, Shield } from "lucide-react";
-import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
+import { ArrowRight, Clock, Upload, MessageCircle, Server, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const wtSheetsData = {
+  heroSection: {
+    headline: "WT-Sheets: Transform Google Sheets into a Hiring Powerhouse",
+    subheadline: "Automate candidate form creation, streamline AI-powered screening, rank resumes instantly, and make smarter hiring decisions – all within Google Sheets.",
+    primaryCta: {
+      text: "Start Using for FREE",
+      link: "/signup"
+    }
+  },
+  keyFeatures: [
+    {
+      icon: FormIcon,
+      name: "AI-Generated Hiring Forms",
+      description: "Input a job description; our Question API auto-generates relevant screening questions. Get a shareable form link instantly."
+    },
+    {
+      icon: FileText,
+      name: "Automated Resume Ranking (FIT Score)",
+      description: "Our FIT Score API instantly scores resume alignment with the JD. Sort candidates by relevance directly in Sheets."
+    },
+    {
+      icon: Brain,
+      name: "Intelligent Resume Data Extraction",
+      description: "The Resume Parser API automatically extracts skills, experience, education, etc., structuring it neatly in your sheet."
+    },
+    {
+      icon: Activity,
+      name: "AI-Powered Candidate Evaluation",
+      description: "Our Evaluation API scores candidate responses to form questions, providing another layer of data for ranking."
+    },
+    {
+      icon: FileSpreadsheet,
+      name: "Centralized Data in Google Sheets",
+      description: "All candidate info, scores, and extracted data are automatically organized in one accessible Google Sheet."
+    },
+    {
+      icon: Search,
+      name: "Advanced Search & Filtering",
+      description: "Instantly filter and search candidates within Sheets using AI-extracted data points (skills, experience, scores)."
+    }
+  ],
+  howItWorks: [
+    {
+      id: 1,
+      name: "Create a Smart Hiring Form",
+      description: "Paste your job description. WT-Sheets uses the Question API to suggest relevant screening questions. Customize if needed and generate a shareable application form link."
+    },
+    {
+      id: 2,
+      name: "Candidates Apply Seamlessly",
+      description: "Applicants use the link to submit their resume and answer questions (e.g., Notice Period, CTC, Relocation, Reason for Change)."
+    },
+    {
+      id: 3,
+      name: "AI Processing & Data Population",
+      description: "Submitted data triggers AI analysis: FIT Score API ranks resume-JD match, Resume Parser API extracts key details, and Evaluation API scores answers. All results populate your Google Sheet automatically."
+    },
+    {
+      id: 4,
+      name: "Review & Decide in Google Sheets",
+      description: "Access your auto-updated Google Sheet. Sort by FIT Score, filter by skills, review extracted data and AI evaluations to quickly identify top candidates."
+    }
+  ]
+};
 
 const WTSheets = () => {
   return (
     <>
       <Helmet>
-        <title>WT-Sheets | Transform Google Sheets Into Your Smartest Recruiter</title>
-        <meta name="description" content="Transform your spreadsheets into an AI-powered hiring workspace with WhiteTable's WT-Sheets." />
+        <title>WT-Sheets | AI-Powered Hiring Automation in Google Sheets</title>
+        <meta name="description" content="Transform Google Sheets into a hiring powerhouse with WT-Sheets. Automate form creation, AI candidate screening, resume ranking & evaluation. Start free!" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
         <NavbarWrapper />
         
         <main className="flex-grow">
-          {/* Hero Section */}
-          <section className="w-full py-16 md:py-24 bg-gradient-to-b from-teal-50 to-white dark:from-gray-900 dark:to-gray-950">
-            <div className="container mx-auto px-4 md:px-6">
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 space-y-6">
-                  <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tighter">
-                    Make Google Sheets Your Smartest Recruiter
-                  </h1>
-                  <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl">
-                    Transform your spreadsheets into an AI-powered hiring workspace that slashes manual screening time by up to 90%.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Button size="lg" className="bg-teal-500 hover:bg-teal-600">
-                      Install Add-on Free
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <Button size="lg" variant="outline" className="border-teal-200 text-teal-600 hover:bg-teal-50">
-                      Watch Demo
-                    </Button>
-                  </div>
-                </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="relative w-full max-w-md">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-6 border border-teal-100">
-                      <div className="flex justify-center items-center">
-                        <div className="bg-teal-50 p-6 rounded-lg">
-                          <FileSpreadsheet className="h-20 w-20 text-teal-500" />
-                        </div>
-                      </div>
-                      <div className="mt-4 bg-teal-50 p-3 rounded-lg">
-                        <div className="h-4 w-3/4 bg-teal-200 rounded mb-2"></div>
-                        <div className="h-4 w-1/2 bg-teal-200 rounded mb-2"></div>
-                        <div className="h-4 w-5/6 bg-teal-200 rounded"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <InternalHeroSection
+            tagText="AI Hiring Automation"
+            tagBgColor="bg-purple-100 dark:bg-purple-900/30"
+            tagTextColor="text-purple-700 dark:text-purple-300"
+            headline={wtSheetsData.heroSection.headline}
+            subheadline={wtSheetsData.heroSection.subheadline}
+            primaryCta={wtSheetsData.heroSection.primaryCta}
+          >
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-purple-100 dark:border-purple-900/30">
+              <div className="flex items-center justify-center mb-6">
+                <FileSpreadsheet className="h-16 w-16 text-purple-500" />
+              </div>
+              <div className="space-y-4">
+                <div className="h-2 bg-purple-100 dark:bg-purple-900/30 rounded w-3/4"></div>
+                <div className="h-2 bg-purple-100 dark:bg-purple-900/30 rounded w-5/6"></div>
+                <div className="h-2 bg-purple-100 dark:bg-purple-900/30 rounded w-2/3"></div>
               </div>
             </div>
-          </section>
+          </InternalHeroSection>
 
+          <KeyFeaturesSection
+            title="Key Features & Advantages"
+            description="WT-Sheets transforms a standard Google Sheet into your intelligent hiring dashboard, automating tedious tasks and delivering powerful insights."
+            features={wtSheetsData.keyFeatures}
+          />
+
+          <HowItWorksSection
+            title="How WT-Sheets Streamlines Your Hiring"
+            description="Experience a seamless, automated hiring workflow powered by AI."
+            steps={wtSheetsData.howItWorks}
+          />
+          
           {/* Key Advantages Section */}
           <section className="w-full py-16 bg-white dark:bg-gray-950">
             <div className="container mx-auto px-4 md:px-6">
@@ -108,53 +167,6 @@ const WTSheets = () => {
             </div>
           </section>
 
-          {/* How It Works Section */}
-          <section className="w-full py-16 bg-teal-50 dark:bg-gray-900">
-            <div className="container mx-auto px-4 md:px-6">
-              <h2 className="text-3xl font-bold text-center mb-10">How It Works</h2>
-              
-              <div className="max-w-4xl mx-auto">
-                <div className="space-y-8">
-                  <div className="flex flex-col md:flex-row items-start gap-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
-                    <div className="bg-teal-500 text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg font-bold">1</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Install & Setup</h3>
-                      <p className="text-gray-700 dark:text-gray-300">
-                        Add WT-Sheets to your Google Workspace account with a few clicks. No coding required, and your data always stays secure.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col md:flex-row items-start gap-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
-                    <div className="bg-teal-500 text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg font-bold">2</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Upload Resumes</h3>
-                      <p className="text-gray-700 dark:text-gray-300">
-                        Import candidate resumes directly into Google Sheets or connect to your existing file storage. WT-Sheets automatically extracts key information.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col md:flex-row items-start gap-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
-                    <div className="bg-teal-500 text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg font-bold">3</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Review & Collaborate</h3>
-                      <p className="text-gray-700 dark:text-gray-300">
-                        Get structured candidate data in your spreadsheet with AI-powered insights, skill matching, and qualification scoring. Share and collaborate with your team in real-time.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Features Section */}
           <section className="w-full py-16 bg-white dark:bg-gray-950">
             <div className="container mx-auto px-4 md:px-6">
@@ -175,7 +187,7 @@ const WTSheets = () => {
                 <Card className="border border-teal-100 dark:border-teal-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
                     <div className="mb-4 bg-teal-50 dark:bg-teal-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <BarChart2 className="h-6 w-6 text-teal-500" />
+                      <Activity className="h-6 w-6 text-teal-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Smart Candidate Scoring</h3>
                     <p className="text-gray-600 dark:text-gray-400">
@@ -199,7 +211,7 @@ const WTSheets = () => {
                 <Card className="border border-teal-100 dark:border-teal-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
                     <div className="mb-4 bg-teal-50 dark:bg-teal-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Zap className="h-6 w-6 text-teal-500" />
+                      <ArrowRight className="h-6 w-6 text-teal-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">One-Click Actions</h3>
                     <p className="text-gray-600 dark:text-gray-400">
