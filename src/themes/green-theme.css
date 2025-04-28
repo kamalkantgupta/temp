@@ -1,0 +1,77 @@
+
+.green-theme {
+  --primary-color: var(--green-color);
+  --primary-hover: var(--green-hover);
+  --primary-light: var(--green-light);
+  --secondary-color: #64748b;
+  --accent-color: #D1FAE5;
+  --text-color: #1e293b;
+  --background-color: #ffffff;
+  --card-color: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+.green-theme .navbar {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.green-theme .hero-section {
+  background: linear-gradient(to bottom, var(--green-light), var(--background-color));
+}
+
+.green-theme .cta-section {
+  background: linear-gradient(to right, var(--green-light), var(--accent-color));
+}
+
+.green-theme .primary-button {
+  background-color: var(--green-color);
+  color: white;
+}
+
+.green-theme .primary-button:hover {
+  background-color: var(--green-hover);
+}
+
+.green-theme .outline-button {
+  border-color: var(--green-color);
+  color: var(--green-color);
+}
+
+.green-theme .outline-button:hover {
+  background-color: var(--green-light);
+}
+
+.green-theme .card {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+.green-theme .icon-background {
+  background-color: var(--green-light);
+}
+
+.green-theme .icon {
+  color: var(--green-color);
+}
+
+.green-theme .agent-section {
+  background-color: var(--accent-color);
+}
+
+/* Ensure correct coloring of dynamic elements */
+.green-theme .bg-primary {
+  background-color: var(--green-color) !important;
+}
+
+.green-theme .text-primary {
+  color: var(--green-color) !important;
+}
+
+.green-theme .border-primary {
+  border-color: var(--green-color) !important;
+}
+
+.green-theme .hover\:bg-primary:hover {
+  background-color: var(--green-hover) !important;
+}

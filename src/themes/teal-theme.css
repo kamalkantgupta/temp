@@ -1,0 +1,77 @@
+
+.teal-theme {
+  --primary-color: var(--teal-color);
+  --primary-hover: var(--teal-hover);
+  --primary-light: var(--teal-light);
+  --secondary-color: #64748b;
+  --accent-color: #f0fdfa;
+  --text-color: #1e293b;
+  --background-color: #ffffff;
+  --card-color: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+.teal-theme .navbar {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.teal-theme .hero-section {
+  background: linear-gradient(to bottom, var(--teal-light), var(--background-color));
+}
+
+.teal-theme .cta-section {
+  background: linear-gradient(to right, var(--teal-light), var(--accent-color));
+}
+
+.teal-theme .primary-button {
+  background-color: var(--teal-color);
+  color: white;
+}
+
+.teal-theme .primary-button:hover {
+  background-color: var(--teal-hover);
+}
+
+.teal-theme .outline-button {
+  border-color: var(--teal-color);
+  color: var(--teal-color);
+}
+
+.teal-theme .outline-button:hover {
+  background-color: var(--teal-light);
+}
+
+.teal-theme .card {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+.teal-theme .icon-background {
+  background-color: var(--teal-light);
+}
+
+.teal-theme .icon {
+  color: var(--teal-color);
+}
+
+.teal-theme .agent-section {
+  background-color: var(--accent-color);
+}
+
+/* Ensure correct coloring of dynamic elements */
+.teal-theme .bg-primary {
+  background-color: var(--teal-color) !important;
+}
+
+.teal-theme .text-primary {
+  color: var(--teal-color) !important;
+}
+
+.teal-theme .border-primary {
+  border-color: var(--teal-color) !important;
+}
+
+.teal-theme .hover\:bg-primary:hover {
+  background-color: var(--teal-hover) !important;
+}

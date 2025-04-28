@@ -1,0 +1,77 @@
+
+.purple-theme {
+  --primary-color: var(--purple-color);
+  --primary-hover: var(--purple-hover);
+  --primary-light: var(--purple-light);
+  --secondary-color: #64748b;
+  --accent-color: #EDE9FE;
+  --text-color: #1e293b;
+  --background-color: #ffffff;
+  --card-color: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+.purple-theme .navbar {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.purple-theme .hero-section {
+  background: linear-gradient(to bottom, var(--purple-light), var(--background-color));
+}
+
+.purple-theme .cta-section {
+  background: linear-gradient(to right, var(--purple-light), var(--accent-color));
+}
+
+.purple-theme .primary-button {
+  background-color: var(--purple-color);
+  color: white;
+}
+
+.purple-theme .primary-button:hover {
+  background-color: var(--purple-hover);
+}
+
+.purple-theme .outline-button {
+  border-color: var(--purple-color);
+  color: var(--purple-color);
+}
+
+.purple-theme .outline-button:hover {
+  background-color: var(--purple-light);
+}
+
+.purple-theme .card {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+.purple-theme .icon-background {
+  background-color: var(--purple-light);
+}
+
+.purple-theme .icon {
+  color: var(--purple-color);
+}
+
+.purple-theme .agent-section {
+  background-color: var(--accent-color);
+}
+
+/* Ensure correct coloring of dynamic elements */
+.purple-theme .bg-primary {
+  background-color: var(--purple-color) !important;
+}
+
+.purple-theme .text-primary {
+  color: var(--purple-color) !important;
+}
+
+.purple-theme .border-primary {
+  border-color: var(--purple-color) !important;
+}
+
+.purple-theme .hover\:bg-primary:hover {
+  background-color: var(--purple-hover) !important;
+}

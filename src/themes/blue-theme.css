@@ -1,0 +1,77 @@
+
+.blue-theme {
+  --primary-color: var(--blue-color);
+  --primary-hover: var(--blue-hover);
+  --primary-light: var(--blue-light);
+  --secondary-color: #64748b;
+  --accent-color: #f0f9ff;
+  --text-color: #1e293b;
+  --background-color: #ffffff;
+  --card-color: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+.blue-theme .navbar {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.blue-theme .hero-section {
+  background: linear-gradient(to bottom, var(--blue-light), var(--background-color));
+}
+
+.blue-theme .cta-section {
+  background: linear-gradient(to right, var(--blue-light), var(--accent-color));
+}
+
+.blue-theme .primary-button {
+  background-color: var(--blue-color);
+  color: white;
+}
+
+.blue-theme .primary-button:hover {
+  background-color: var(--blue-hover);
+}
+
+.blue-theme .outline-button {
+  border-color: var(--blue-color);
+  color: var(--blue-color);
+}
+
+.blue-theme .outline-button:hover {
+  background-color: var(--blue-light);
+}
+
+.blue-theme .card {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+.blue-theme .icon-background {
+  background-color: var(--blue-light);
+}
+
+.blue-theme .icon {
+  color: var(--blue-color);
+}
+
+.blue-theme .agent-section {
+  background-color: var(--accent-color);
+}
+
+/* Ensure correct coloring of dynamic elements */
+.blue-theme .bg-primary {
+  background-color: var(--blue-color) !important;
+}
+
+.blue-theme .text-primary {
+  color: var(--blue-color) !important;
+}
+
+.blue-theme .border-primary {
+  border-color: var(--blue-color) !important;
+}
+
+.blue-theme .hover\:bg-primary:hover {
+  background-color: var(--blue-hover) !important;
+}

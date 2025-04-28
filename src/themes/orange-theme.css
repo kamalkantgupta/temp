@@ -1,0 +1,77 @@
+
+.orange-theme {
+  --primary-color: var(--orange-color);
+  --primary-hover: var(--orange-hover);
+  --primary-light: var(--orange-light);
+  --secondary-color: #64748b;
+  --accent-color: #ffedd5;
+  --text-color: #1e293b;
+  --background-color: #ffffff;
+  --card-color: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+.orange-theme .navbar {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.orange-theme .hero-section {
+  background: linear-gradient(to bottom, var(--orange-light), var(--background-color));
+}
+
+.orange-theme .cta-section {
+  background: linear-gradient(to right, var(--orange-light), var(--accent-color));
+}
+
+.orange-theme .primary-button {
+  background-color: var(--orange-color);
+  color: white;
+}
+
+.orange-theme .primary-button:hover {
+  background-color: var(--orange-hover);
+}
+
+.orange-theme .outline-button {
+  border-color: var(--orange-color);
+  color: var(--orange-color);
+}
+
+.orange-theme .outline-button:hover {
+  background-color: var(--orange-light);
+}
+
+.orange-theme .card {
+  background-color: var(--card-color);
+  border-color: var(--border-color);
+}
+
+.orange-theme .icon-background {
+  background-color: var(--orange-light);
+}
+
+.orange-theme .icon {
+  color: var(--orange-color);
+}
+
+.orange-theme .agent-section {
+  background-color: var(--accent-color);
+}
+
+/* Ensure correct coloring of dynamic elements */
+.orange-theme .bg-primary {
+  background-color: var(--orange-color) !important;
+}
+
+.orange-theme .text-primary {
+  color: var(--orange-color) !important;
+}
+
+.orange-theme .border-primary {
+  border-color: var(--orange-color) !important;
+}
+
+.orange-theme .hover\:bg-primary:hover {
+  background-color: var(--orange-hover) !important;
+}
