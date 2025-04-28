@@ -4,16 +4,30 @@ import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, Code, FileCode, GitCompareArrows, Gauge, Brain, LineChart, Zap, CheckCircle2, Clock, Settings, Scale } from "lucide-react";
+import { ArrowRight, Check, FileText, Brain, Zap, BarChart2, Clock, FileSpreadsheet, Database, GitCompareArrows, Gauge, Award, Server, Shield } from "lucide-react";
 import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
+import { useState } from "react";
+import { toast } from "@/components/ui/sonner";
 
 const FITScoreAgent = () => {
+  const [demoEmail, setDemoEmail] = useState("");
+  
+  const handleDemoRequest = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!demoEmail) {
+      toast.error("Please enter your email address");
+      return;
+    }
+    toast.success("Demo request submitted! We'll contact you shortly.");
+    setDemoEmail("");
+  };
+
   return (
     <>
       <Helmet>
-        <title>FIT Score Agent | AI Resume & Job Description Matching API</title>
-        <meta name="description" content="Instantly match resumes to job descriptions with Whitetable's FIT Score Agent. Get AI-powered Fit Scores (0-100), strength/gap analysis via API. Perfect for ATS & HR Tech." />
-        <meta name="keywords" content="resume matching, job description matching, AI hiring, candidate evaluation" />
+        <title>FIT Score Agent | AI-Powered Resume-to-Job Matching | WhiteTable.ai</title>
+        <meta name="description" content="Instantly evaluate how well candidates match your job requirements with WhiteTable's FIT Score Agent. Get objective scoring and detailed candidate insights." />
+        <meta name="keywords" content="resume matching, job matching, candidate evaluation, AI hiring" />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
@@ -23,42 +37,51 @@ const FITScoreAgent = () => {
           {/* Hero Section */}
           <section className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-950">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 space-y-6">
-                  <h1 className="text-3xl md:text-5xl font-bold leading-tight tracking-tighter">
-                    Unlock Precision Hiring: The Whitetable FIT Score Agent
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6 animate-fade-in-up">
+                  <div className="inline-flex px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 font-medium text-sm mb-2">
+                    AI Candidate Matching
+                  </div>
+                  <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                    FIT Score Agent
                   </h1>
-                  <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl">
-                    Instantly score resume-to-job description matches with AI. Get objective FIT Scores (0-100) and detailed candidate insights to streamline screening and hire smarter, faster.
+                  <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
+                    Instantly score how well each resume aligns with your job description. Our AI evaluates candidate fit with precision, giving you actionable insights to make better hiring decisions.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                      Get API Access
+                  <div className="flex flex-wrap gap-4">
+                    <Button className="bg-purple-500 hover:bg-purple-600">
+                      Try FIT Score API
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                    <Button size="lg" variant="outline" className="border-purple-200 text-purple-600 hover:bg-purple-50">
-                      View API Docs
-                      <Code className="ml-2 h-4 w-4" />
+                    <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">
+                      View Documentation
                     </Button>
                   </div>
                 </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="relative w-full max-w-md">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-4">
-                      <div className="flex justify-center items-center h-48">
-                        <div className="flex items-center space-x-8">
-                          <div className="bg-purple-100 p-4 rounded-lg">
-                            <FileCode className="h-16 w-16 text-purple-500" />
-                          </div>
-                          <GitCompareArrows className="h-10 w-10 text-purple-400" />
-                          <div className="bg-purple-100 p-4 rounded-lg">
-                            <Gauge className="h-16 w-16 text-purple-500" />
+                <div className="relative animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-purple-100 dark:border-purple-900/30">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="flex items-center justify-center gap-8 mb-8">
+                        <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg text-center">
+                          <FileText className="h-12 w-12 text-purple-500 mx-auto mb-2" />
+                          <span className="text-sm text-gray-600 dark:text-gray-400">Resume</span>
+                        </div>
+                        <GitCompareArrows className="h-8 w-8 text-purple-400" />
+                        <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg text-center">
+                          <FileText className="h-12 w-12 text-purple-500 mx-auto mb-2" />
+                          <span className="text-sm text-gray-600 dark:text-gray-400">Job Description</span>
+                        </div>
+                      </div>
+                      <div className="w-40 h-40 relative flex items-center justify-center">
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full opacity-10 animate-pulse"></div>
+                        <div className="absolute inset-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full opacity-20"></div>
+                        <div className="absolute inset-4 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="text-4xl font-bold text-purple-600">87</div>
+                            <div className="text-sm font-medium text-gray-600 dark:text-gray-400">FIT Score</div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 rounded-lg py-2 px-4 shadow-lg font-bold text-purple-600 border border-purple-200">
-                      FIT Score: 87
                     </div>
                   </div>
                 </div>
@@ -69,198 +92,46 @@ const FITScoreAgent = () => {
           {/* Overview Section */}
           <section className="w-full py-16 bg-white dark:bg-gray-950">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl font-bold mb-6">Stop Guessing, Start Scoring: AI-Powered Candidate Matching</h2>
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                  Overwhelmed by resume volume? The Whitetable FIT Score Agent cuts through the noise. Our AI analyzes resumes against your specific job descriptions, delivering an objective FIT Score (0-100) plus actionable insights on candidate strengths and gaps. Automate screening, focus on top contenders, and make data-driven hiring decisions with confidence.
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Stop Guessing, Start Measuring Candidate Fit</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                  The FIT Score Agent removes subjectivity from resume screening. Our AI analyzes each resume against your specific job requirements, delivering an objective score (0-100) and detailed insights on candidate strengths and gaps.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
-                    <p className="text-red-700 dark:text-red-400 font-medium">Manual resume screening is time-consuming and prone to bias.</p>
-                  </div>
-                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-                    <p className="text-green-700 dark:text-green-400 font-medium">AI-driven matching provides objective, fast, and scalable candidate evaluation.</p>
-                  </div>
-                </div>
               </div>
-            </div>
-          </section>
-
-          {/* How It Works Section */}
-          <section className="w-full py-16 bg-purple-50 dark:bg-gray-900">
-            <div className="container mx-auto px-4 md:px-6">
-              <h2 className="text-3xl font-bold text-center mb-10">Simple Two-Step API Workflow</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                {/* Step 1 */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                  <div className="flex items-center mb-4">
-                    <span className="bg-purple-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
-                    <h3 className="font-semibold text-xl">Create FIT Job ID</h3>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Submit your Job Description (JD) text via API. The Agent processes it and returns a unique <code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded text-purple-700 dark:text-purple-300">fitJobId</code> representing that specific role's requirements.
-                  </p>
-                  <div className="bg-gray-50 dark:bg-gray-900/50 p-3 rounded text-sm font-mono">
-                    Input: Job Description (Text) → Output: <code>fitJobId</code>
-                  </div>
-                  <div className="mt-4">
-                    <a href="/docs/fit-score#create-job" className="text-purple-600 hover:text-purple-700 dark:text-purple-400 flex items-center">
-                      <Code className="h-4 w-4 mr-1" /> View Documentation
-                    </a>
-                  </div>
-                </div>
-
-                {/* Step 2 */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                  <div className="flex items-center mb-4">
-                    <span className="bg-purple-500 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
-                    <h3 className="font-semibold text-xl">Evaluate Resume & Get FIT Score</h3>
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Send the <code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded text-purple-700 dark:text-purple-300">fitJobId</code> and the candidate's resume (URL or text content) to the evaluation endpoint. The Agent performs the AI match.
-                  </p>
-                  <div className="bg-gray-50 dark:bg-gray-900/50 p-3 rounded text-sm font-mono">
-                    Input: <code>fitJobId</code>, Resume (URL/Text) → Output: FIT Score, Pros, Cons, Details
-                  </div>
-                  <div className="mt-4">
-                    <a href="/docs/fit-score#evaluate-resume" className="text-purple-600 hover:text-purple-700 dark:text-purple-400 flex items-center">
-                      <Code className="h-4 w-4 mr-1" /> View Documentation
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Output Explanation */}
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md max-w-2xl mx-auto">
-                <h3 className="font-semibold text-xl mb-4">Receive Comprehensive Insights:</h3>
-                <ul className="space-y-3">
-                  <li className="flex">
-                    <div className="mr-3 text-purple-600 font-bold">FIT Score (0-100):</div>
-                    <div className="text-gray-700 dark:text-gray-300">Overall alignment percentage between resume and JD.</div>
-                  </li>
-                  <li className="flex">
-                    <div className="mr-3 text-purple-600 font-bold">Pros:</div>
-                    <div className="text-gray-700 dark:text-gray-300">Key skills/experiences identified as strong matches.</div>
-                  </li>
-                  <li className="flex">
-                    <div className="mr-3 text-purple-600 font-bold">Cons:</div>
-                    <div className="text-gray-700 dark:text-gray-300">Areas where the candidate appears to lack required qualifications.</div>
-                  </li>
-                  <li className="flex">
-                    <div className="mr-3 text-purple-600 font-bold">Details:</div>
-                    <div className="text-gray-700 dark:text-gray-300">Specific resume excerpts justifying the Pros and Cons assessment.</div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Key Features Section */}
-          <section className="w-full py-16 bg-white dark:bg-gray-950">
-            <div className="container mx-auto px-4 md:px-6">
-              <h2 className="text-3xl font-bold text-center mb-12">Why Integrate the FIT Score Agent?</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {/* Feature 1 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Zap className="h-6 w-6 text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Instant Resume Screening & Scoring</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Evaluate candidate suitability in seconds, drastically reducing manual review time.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                {/* Feature 2 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
                       <Gauge className="h-6 w-6 text-purple-500" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Objective FIT Score (0-100)</h3>
+                    <h3 className="text-xl font-semibold mb-2">Objective FIT Score</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Get a clear, consistent, AI-driven metric for resume relevance against job requirements.
+                      Get a clear numerical score (0-100) representing how well each candidate matches your job requirements.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Feature 3 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <LineChart className="h-6 w-6 text-purple-500" />
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <Check className="h-6 w-6 text-purple-500" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Detailed Strength & Gap Analysis</h3>
+                    <h3 className="text-xl font-semibold mb-2">Detailed Strength Analysis</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Understand *why* a candidate fits (or doesn't), pinpointing specific skills and experience alignment.
+                      Understand exactly which skills and experiences make a candidate a good match for the role.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Feature 4 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
                   <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Scale className="h-6 w-6 text-purple-500" />
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <FileText className="h-6 w-6 text-purple-500" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Automated Candidate Prioritization</h3>
+                    <h3 className="text-xl font-semibold mb-2">Gap Identification</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Quickly surface the most promising candidates based on their FIT Score.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                {/* Feature 5 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <CheckCircle2 className="h-6 w-6 text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Evidence-Based Resume Insights</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      See exactly which parts of the resume support the identified strengths and weaknesses.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                {/* Feature 6 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <FileCode className="h-6 w-6 text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Seamless API Integration</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Easily embed into your ATS, HR platform, or custom hiring tools via a developer-friendly REST API.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                {/* Feature 7 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Reduce Manual Screening Effort</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Free up recruiter time to focus on engaging qualified candidates, not sifting through irrelevant resumes.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                {/* Feature 8 */}
-                <Card className="border border-gray-200 dark:border-gray-800">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                      <Settings className="h-6 w-6 text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Flexible & Adaptable AI</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Our underlying AI models adapt to various job roles and industries for relevant scoring.
+                      Identify specific areas where candidates lack required qualifications or experience.
                     </p>
                   </CardContent>
                 </Card>
@@ -268,119 +139,525 @@ const FITScoreAgent = () => {
             </div>
           </section>
 
-          {/* API Requests Overview Section */}
+          {/* How It Works */}
           <section className="w-full py-16 bg-purple-50 dark:bg-gray-900">
             <div className="container mx-auto px-4 md:px-6">
-              <h2 className="text-3xl font-bold text-center mb-10">API at a Glance</h2>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Simple Two-Step Workflow</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                  Our FIT Score Agent works in two simple steps, making it easy to integrate into your hiring workflow.
+                </p>
+              </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
-                {/* API 1 */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                  <h3 className="font-semibold text-xl mb-3 text-purple-600">1. Create FIT Job ID</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Analyzes the Job Description to establish matching criteria.
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex">
-                      <span className="font-medium w-20">Input:</span>
-                      <span className="text-gray-600 dark:text-gray-400">Job Description (text)</span>
-                    </div>
-                    <div className="flex">
-                      <span className="font-medium w-20">Output:</span>
-                      <span className="text-gray-600 dark:text-gray-400"><code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded">fitJobId</code> (string)</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md">
+                  <div className="flex items-center mb-6">
+                    <span className="flex items-center justify-center bg-purple-500 text-white rounded-full w-10 h-10 font-bold text-lg">
+                      1
+                    </span>
+                    <h3 className="text-xl font-bold ml-4">Create FIT Job ID</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <p className="text-gray-700 dark:text-gray-300">
+                      First, submit your job description through our API. Our AI processes it to extract key requirements and creates a unique FIT Job ID.
+                    </p>
+                    <div className="flex items-center justify-center mt-6">
+                      <div className="text-center">
+                        <FileText className="h-12 w-12 text-purple-500 mx-auto mb-2" />
+                        <p className="text-sm font-medium">Job Description</p>
+                        <div className="my-4">
+                          <ArrowRight className="h-5 w-5 text-purple-400 mx-auto" />
+                        </div>
+                        <div className="bg-purple-100 dark:bg-purple-900/30 px-4 py-2 rounded-lg">
+                          <code className="text-purple-700 dark:text-purple-300">fitJobId: "job_12345"</code>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* API 2 */}
-                <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                  <h3 className="font-semibold text-xl mb-3 text-purple-600">2. Evaluate Resume</h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Scores a resume against the pre-processed Job Description.
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex">
-                      <span className="font-medium w-20">Input:</span>
-                      <span className="text-gray-600 dark:text-gray-400"><code className="bg-purple-100 dark:bg-purple-900/30 px-1 rounded">fitJobId</code> (string), Resume (URL or text)</span>
-                    </div>
-                    <div className="flex">
-                      <span className="font-medium w-20">Output:</span>
-                      <span className="text-gray-600 dark:text-gray-400">FIT Score (int), Pros (list), Cons (list), Details (object)</span>
+                
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-md">
+                  <div className="flex items-center mb-6">
+                    <span className="flex items-center justify-center bg-purple-500 text-white rounded-full w-10 h-10 font-bold text-lg">
+                      2
+                    </span>
+                    <h3 className="text-xl font-bold ml-4">Get FIT Score & Insights</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <p className="text-gray-700 dark:text-gray-300">
+                      Send the candidate resume along with the FIT Job ID. Our AI compares them and returns a comprehensive analysis.
+                    </p>
+                    <div className="flex items-center justify-center mt-6">
+                      <div className="text-center space-y-4">
+                        <div className="flex items-center justify-center gap-4">
+                          <div>
+                            <FileText className="h-10 w-10 text-purple-500 mx-auto mb-1" />
+                            <p className="text-xs">Resume</p>
+                          </div>
+                          <span className="text-sm">+</span>
+                          <div>
+                            <code className="text-xs bg-purple-100 dark:bg-purple-900/30 px-2 py-1 rounded">fitJobId</code>
+                          </div>
+                        </div>
+                        <ArrowRight className="h-5 w-5 text-purple-400 mx-auto" />
+                        <div className="grid grid-cols-3 gap-2">
+                          <div className="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-lg text-center">
+                            <p className="text-sm font-medium">87</p>
+                            <p className="text-xs">FIT Score</p>
+                          </div>
+                          <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg text-center">
+                            <p className="text-xs">Strengths</p>
+                          </div>
+                          <div className="bg-red-100 dark:bg-red-900/30 p-2 rounded-lg text-center">
+                            <p className="text-xs">Gaps</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section className="w-full py-16 bg-white dark:bg-gray-950">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Powerful Features</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                  The FIT Score Agent offers comprehensive capabilities to transform your hiring decision process.
+                </p>
+              </div>
               
-              <div className="text-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <Brain className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Contextual Understanding</h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Our AI understands the meaning behind job requirements, not just keywords, for more accurate matching.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <BarChart2 className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Comprehensive Scoring</h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Evaluates technical skills, experience, education, certifications, and soft skills for a holistic score.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <FileSpreadsheet className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Evidence-Based Results</h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Provides specific resume excerpts that support the identified strengths and gaps.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <Database className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Bulk Processing</h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Process hundreds of resumes against a single job description efficiently for high-volume hiring.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <Clock className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Instant Results</h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Get detailed scoring and analysis in seconds, dramatically reducing screening time.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border border-purple-100 dark:border-purple-900/50 hover:shadow-md transition-shadow">
+                  <CardContent className="pt-6">
+                    <div className="mb-4 bg-purple-50 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                      <Shield className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Bias Mitigation</h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Focuses on skills and experience while avoiding demographic factors that could introduce bias.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* API Demo */}
+          <section className="w-full py-16 bg-purple-50 dark:bg-gray-900">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Easy API Integration</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                  Our RESTful API makes it simple to integrate FIT Score capabilities into your existing workflow.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div>
+                  <h3 className="text-xl font-bold mb-4">Create FIT Job ID</h3>
+                  <div className="bg-gray-900 text-white p-6 rounded-lg font-mono text-sm">
+                    <p className="text-purple-400 mb-2">POST /api/v1/fit/job</p>
+                    <div className="text-gray-400"># Request body</div>
+                    <div className="text-gray-100 mb-2">{'{'}</div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"job_description"</span>: 
+                      <span className="text-green-400"> "We are seeking a Senior Software Engineer with 5+ years of React experience..."</span>
+                    </div>
+                    <div className="text-gray-100">{'}'}</div>
+                    
+                    <div className="mt-4 text-gray-400"># Response</div>
+                    <div className="text-gray-100 mb-2">{'{'}</div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"fitJobId"</span>: 
+                      <span className="text-green-400"> "fit_j_615a3b2c"</span>,
+                    </div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"status"</span>: 
+                      <span className="text-green-400"> "success"</span>
+                    </div>
+                    <div className="text-gray-100">{'}'}</div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-bold mb-4">Evaluate Resume</h3>
+                  <div className="bg-gray-900 text-white p-6 rounded-lg font-mono text-sm">
+                    <p className="text-purple-400 mb-2">POST /api/v1/fit/score</p>
+                    <div className="text-gray-400"># Request body</div>
+                    <div className="text-gray-100 mb-2">{'{'}</div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"fitJobId"</span>: 
+                      <span className="text-green-400"> "fit_j_615a3b2c"</span>,
+                    </div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"resume"</span>: 
+                      <span className="text-green-400"> "Full resume text or resume URL..."</span>
+                    </div>
+                    <div className="text-gray-100">{'}'}</div>
+                    
+                    <div className="mt-4 text-gray-400"># Response</div>
+                    <div className="text-gray-100 mb-2">{'{'}</div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"fitScore"</span>: 
+                      <span className="text-green-400"> 87</span>,
+                    </div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"strengths"</span>: [
+                    </div>
+                    <div className="ml-8">
+                      <span className="text-green-400">"Strong React.js experience (7 years)"</span>,
+                    </div>
+                    <div className="ml-8">
+                      <span className="text-green-400">"Extensive API integration knowledge"</span>
+                    </div>
+                    <div className="ml-4">],</div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"gaps"</span>: [
+                    </div>
+                    <div className="ml-8">
+                      <span className="text-green-400">"Limited experience with GraphQL"</span>,
+                    </div>
+                    <div className="ml-8">
+                      <span className="text-green-400">"No AWS certification mentioned"</span>
+                    </div>
+                    <div className="ml-4">],</div>
+                    <div className="ml-4">
+                      <span className="text-purple-400">"details"</span>: {...}
+                    </div>
+                    <div className="text-gray-100">{'}'}</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-10 text-center">
                 <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">
-                  Dive into the Documentation
-                  <Code className="ml-2 h-4 w-4" />
+                  View Complete API Documentation
                 </Button>
               </div>
             </div>
           </section>
 
-          {/* Use Cases Section */}
+          {/* Use Cases */}
           <section className="w-full py-16 bg-white dark:bg-gray-950">
             <div className="container mx-auto px-4 md:px-6">
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-8">Powering Efficient Recruitment Workflows</h2>
-                
-                <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-6 mb-8">
-                  <ul className="space-y-4">
-                    {[
-                      "ATS Platforms: Enhance built-in matching capabilities.",
-                      "HR & Recruitment Agencies: Accelerate candidate shortlisting.",
-                      "Job Boards: Offer enhanced job matching for seekers.",
-                      "Internal Hiring Tools: Improve talent discovery within organizations.",
-                      "Career Services & Resume Builders: Provide resume optimization feedback."
-                    ].map((useCase, index) => (
-                      <li key={index} className="flex items-start">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Perfect For Multiple Hiring Scenarios</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                  The FIT Score Agent adapts to various recruitment needs across different platforms.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-white dark:bg-gray-800 rounded-full">
+                      <Award className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="font-bold text-xl ml-3">ATS Integration</h3>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    Enhance your applicant tracking system with automated scoring and candidate ranking.
+                  </p>
+                  <ul className="space-y-2">
+                    {["Automatic candidate scoring", "Prioritized candidate lists", "Detailed match insights"].map((item, i) => (
+                      <li key={i} className="flex items-start">
                         <Check className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 dark:text-gray-300">{useCase}</span>
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div className="text-center">
-                  <p className="text-lg font-medium text-purple-600 dark:text-purple-400">
-                    Easy to integrate AI APIs for ATS, hiring automation platforms, and job platforms.
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-white dark:bg-gray-800 rounded-full">
+                      <Server className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="font-bold text-xl ml-3">Recruitment Agencies</h3>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    Match candidates to multiple jobs simultaneously for faster placements.
                   </p>
+                  <ul className="space-y-2">
+                    {["Multi-job candidate matching", "Talent pool optimization", "Client-ready candidate reports"].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <Check className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
+                  <div className="flex items-center mb-6">
+                    <div className="p-3 bg-white dark:bg-gray-800 rounded-full">
+                      <FileSpreadsheet className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <h3 className="font-bold text-xl ml-3">Internal Mobility</h3>
+                  </div>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    Match current employees to new internal opportunities for better talent utilization.
+                  </p>
+                  <ul className="space-y-2">
+                    {["Employee skill matching", "Internal mobility programs", "Career development planning"].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <Check className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300 text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Developer Focus Section */}
+          {/* Integration Section */}
           <section className="w-full py-16 bg-purple-50 dark:bg-gray-900">
             <div className="container mx-auto px-4 md:px-6">
               <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl font-bold mb-6">Built for Seamless Integration</h2>
+                <h2 className="text-3xl font-bold mb-6">Seamless Integration</h2>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                  Integrate powerful AI matching capabilities effortlessly. Our FIT Score Agent offers a straightforward RESTful API, clear documentation, and code examples to get you up and running quickly. Enhance your platform with objective candidate scoring.
+                  The FIT Score Agent is designed for easy integration with your existing tech stack through our developer-friendly API.
                 </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  {["REST API", "Webhooks", "JSON", "OAuth 2.0"].map((tech, i) => (
+                    <div key={i} className="bg-white dark:bg-gray-800 py-3 px-4 rounded-lg shadow-sm border border-purple-100 dark:border-purple-900/50">
+                      <span className="font-medium text-purple-600 dark:text-purple-400">{tech}</span>
+                    </div>
+                  ))}
+                </div>
                 <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">
-                  Explore API Documentation
-                  <Code className="ml-2 h-4 w-4" />
+                  Explore Integration Options
                 </Button>
               </div>
             </div>
           </section>
 
-          {/* Final CTA Section */}
-          <section className="w-full py-16 bg-purple-600 dark:bg-purple-900">
+          {/* Demo Request */}
+          <section className="w-full py-16 bg-white dark:bg-gray-950">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="max-w-3xl mx-auto bg-purple-50 dark:bg-purple-900/20 p-8 rounded-xl">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold mb-4">See the FIT Score Agent in Action</h2>
+                  <p className="text-lg text-gray-700 dark:text-gray-300">
+                    Request a personalized demo to see how our AI can transform your candidate evaluation process.
+                  </p>
+                </div>
+                
+                <form onSubmit={handleDemoRequest} className="space-y-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <input 
+                      type="email" 
+                      value={demoEmail}
+                      onChange={(e) => setDemoEmail(e.target.value)}
+                      placeholder="Enter your work email" 
+                      className="flex-1 px-4 py-2 border border-purple-200 dark:border-purple-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-800" 
+                      required
+                    />
+                    <Button 
+                      type="submit" 
+                      className="bg-purple-500 hover:bg-purple-600"
+                    >
+                      Request Demo
+                    </Button>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                    We respect your privacy. Your information will never be shared.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing Section */}
+          <section className="w-full py-16 bg-purple-50 dark:bg-gray-900">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                  Choose the plan that fits your hiring volume and needs.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {/* Starter Plan */}
+                <div className="bg-white dark:bg-gray-800 border border-purple-100 dark:border-purple-900/30 rounded-xl shadow-md overflow-hidden">
+                  <div className="p-6 border-b border-purple-100 dark:border-gray-700">
+                    <h3 className="text-xl font-bold mb-1">Starter</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">For small teams</p>
+                    <div className="flex items-baseline">
+                      <span className="text-3xl font-bold">$49</span>
+                      <span className="text-gray-600 dark:text-gray-400 ml-1">/month</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <ul className="space-y-3">
+                      {[
+                        "100 evaluations/month",
+                        "Standard FIT scoring",
+                        "Basic gap analysis",
+                        "API access",
+                        "Email support"
+                      ].map((feature, i) => (
+                        <li key={i} className="flex items-center">
+                          <Check className="h-4 w-4 text-purple-500 mr-2" />
+                          <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="p-6 bg-gray-50 dark:bg-gray-800/60">
+                    <Button className="w-full bg-purple-500 hover:bg-purple-600">Get Started</Button>
+                  </div>
+                </div>
+
+                {/* Pro Plan */}
+                <div className="bg-white dark:bg-gray-800 border border-purple-100 dark:border-purple-900/30 rounded-xl shadow-lg overflow-hidden relative transform scale-105">
+                  <div className="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold py-1 px-3 rounded-bl-lg">
+                    POPULAR
+                  </div>
+                  <div className="p-6 border-b border-purple-100 dark:border-gray-700">
+                    <h3 className="text-xl font-bold mb-1">Professional</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">For growing teams</p>
+                    <div className="flex items-baseline">
+                      <span className="text-3xl font-bold">$199</span>
+                      <span className="text-gray-600 dark:text-gray-400 ml-1">/month</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <ul className="space-y-3">
+                      {[
+                        "500 evaluations/month",
+                        "Advanced FIT scoring",
+                        "Detailed strength & gap analysis",
+                        "Evidence-based results",
+                        "Webhook integration",
+                        "Priority support"
+                      ].map((feature, i) => (
+                        <li key={i} className="flex items-center">
+                          <Check className="h-4 w-4 text-purple-500 mr-2" />
+                          <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="p-6 bg-gray-50 dark:bg-gray-800/60">
+                    <Button className="w-full bg-purple-500 hover:bg-purple-600">Start Free Trial</Button>
+                  </div>
+                </div>
+
+                {/* Enterprise Plan */}
+                <div className="bg-white dark:bg-gray-800 border border-purple-100 dark:border-purple-900/30 rounded-xl shadow-md overflow-hidden">
+                  <div className="p-6 border-b border-purple-100 dark:border-gray-700">
+                    <h3 className="text-xl font-bold mb-1">Enterprise</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">For large organizations</p>
+                    <div className="flex items-baseline">
+                      <span className="text-2xl font-bold">Custom</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <ul className="space-y-3">
+                      {[
+                        "Unlimited evaluations",
+                        "Custom scoring models",
+                        "Advanced analytics dashboard",
+                        "Dedicated account manager",
+                        "SSO integration",
+                        "SLA guarantees",
+                        "On-premise options"
+                      ].map((feature, i) => (
+                        <li key={i} className="flex items-center">
+                          <Check className="h-4 w-4 text-purple-500 mr-2" />
+                          <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="p-6 bg-gray-50 dark:bg-gray-800/60">
+                    <Button className="w-full bg-purple-500 hover:bg-purple-600">Contact Sales</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Final CTA */}
+          <section className="w-full py-16 bg-gradient-to-r from-purple-500 to-purple-600 text-white">
             <div className="container mx-auto px-4 md:px-6 text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">Transform Your Candidate Screening Process Today</h2>
+              <h2 className="text-3xl font-bold mb-4">Transform Your Candidate Screening Today</h2>
               <p className="text-xl text-purple-100 max-w-2xl mx-auto mb-8">
-                Leverage AI to identify the best-fit candidates faster and more accurately. Integrate the Whitetable FIT Score Agent and revolutionize your recruitment workflow.
+                Join forward-thinking companies using WhiteTable's FIT Score Agent to make faster, more informed hiring decisions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="default" className="bg-white text-purple-600 hover:bg-purple-50">
-                  Start Scoring - Get API Key
+                  Get Started Now
                 </Button>
-                <Button size="lg" variant="outline" className="border-purple-300 text-white hover:bg-purple-700">
-                  Request a Demo
+                <Button size="lg" variant="outline" className="border-purple-300 text-white hover:bg-purple-600">
+                  Schedule a Demo
                 </Button>
               </div>
             </div>
