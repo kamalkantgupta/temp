@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
@@ -35,33 +34,55 @@ const WTSheets = () => {
         
         <main className="flex-grow">
           {/* Hero Section with Glass Effect */}
-          <section className="relative w-full py-20 md:py-32 overflow-hidden bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-950">
+          <section className="relative w-full py-20 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
             <div className="absolute inset-0 bg-grid-bg opacity-5"></div>
             <div className="container mx-auto px-4 md:px-6 relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-8 animate-fade-in-up">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
                     WT-Sheets: Transform Google Sheets into a Hiring Powerhouse
                   </h1>
                   <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
                     Automate candidate form creation, streamline AI-powered screening, rank resumes instantly, and make smarter hiring decisions – all within Google Sheets.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Button size="lg" className="bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
                       Start Using for FREE
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
                 </div>
                 <div className="relative animate-fade-in-up delay-200">
-                  <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 dark:bg-gray-800/50 dark:border-gray-700/50 shadow-xl">
-                    <img
-                      src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-                      alt="Graphic showing the Google Sheets logo integrating with AI icons for recruitment tasks like forms, ranking, and parsing."
-                      className="w-full h-auto rounded-lg shadow-2xl"
-                    />
+                  <div className="relative p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 via-blue-400/5 to-transparent backdrop-blur-xl border border-blue-200/20 dark:border-blue-500/20 shadow-2xl">
+                    <div className="absolute inset-0 bg-blue-500/5 rounded-2xl transform rotate-6 -z-10"></div>
+                    <div className="absolute inset-0 bg-blue-500/5 rounded-2xl transform -rotate-3 -z-10"></div>
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-between p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-md">
+                        <div className="flex items-center space-x-3">
+                          <FileSpreadsheet className="h-6 w-6 text-blue-500" />
+                          <span className="font-medium">Job Requirements</span>
+                        </div>
+                        <div className="text-sm text-blue-600 dark:text-blue-400">AI Analysis</div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-md">
+                          <LineChart className="h-6 w-6 text-blue-500 mb-2" />
+                          <span className="text-sm">FIT Score</span>
+                        </div>
+                        <div className="p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-md">
+                          <Brain className="h-6 w-6 text-blue-500 mb-2" />
+                          <span className="text-sm">AI Screening</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between p-4 bg-white/80 dark:bg-gray-800/80 rounded-lg shadow-md">
+                        <div className="flex items-center space-x-3">
+                          <FileText className="h-6 w-6 text-blue-500" />
+                          <span className="font-medium">Resume Data</span>
+                        </div>
+                        <Check className="h-5 w-5 text-green-500" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square bg-gradient-to-r from-purple-500/10 to-blue-500/10 blur-3xl rounded-full"></div>
                 </div>
               </div>
             </div>

@@ -1,33 +1,20 @@
-
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Check, FileText, Brain, Zap, BarChart2, Clock, FileSpreadsheet, Database, GitCompareArrows, Gauge, Award, Server, Shield } from "lucide-react";
+import { ArrowRight, Check, FileText, FileSpreadsheet, Brain, Gauge, LineChart, Target, LayoutDashboard } from "lucide-react";
 import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
-import { useState } from "react";
-import { toast } from "@/components/ui/sonner";
 
 const FITScoreAgent = () => {
-  const [demoEmail, setDemoEmail] = useState("");
-  
-  const handleDemoRequest = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!demoEmail) {
-      toast.error("Please enter your email address");
-      return;
-    }
-    toast.success("Demo request submitted! We'll contact you shortly.");
-    setDemoEmail("");
-  };
-
   return (
     <>
       <Helmet>
-        <title>FIT Score Agent | AI-Powered Resume-to-Job Matching | WhiteTable.ai</title>
-        <meta name="description" content="Instantly evaluate how well candidates match your job requirements with WhiteTable's FIT Score Agent. Get objective scoring and detailed candidate insights." />
-        <meta name="keywords" content="resume matching, job matching, candidate evaluation, AI hiring" />
+        <title>FIT Score Agent | AI Resume & Job Description Matching API</title>
+        <meta 
+          name="description" 
+          content="Instantly match resumes to job descriptions with Whitetable's FIT Score Agent. Get AI-powered Fit Scores (0-100), strength/gap analysis via API. Perfect for ATS & HR Tech." 
+        />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
@@ -35,50 +22,52 @@ const FITScoreAgent = () => {
         
         <main className="flex-grow">
           {/* Hero Section */}
-          <section className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-50 to-white dark:from-gray-900 dark:to-gray-950">
-            <div className="container mx-auto px-4 md:px-6">
+          <section className="relative w-full py-20 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-950">
+            <div className="absolute inset-0 bg-grid-bg opacity-5"></div>
+            <div className="container mx-auto px-4 md:px-6 relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6 animate-fade-in-up">
-                  <div className="inline-flex px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 font-medium text-sm mb-2">
-                    AI Candidate Matching
-                  </div>
-                  <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                    FIT Score Agent
+                <div className="space-y-8 animate-fade-in-up">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    Unlock Precision Hiring: The Whitetable FIT Score Agent
                   </h1>
                   <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300">
-                    Instantly score how well each resume aligns with your job description. Our AI evaluates candidate fit with precision, giving you actionable insights to make better hiring decisions.
+                    Instantly score resume-to-job description matches with AI. Get objective FIT Scores (0-100) and detailed candidate insights to streamline screening and hire smarter, faster.
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <Button className="bg-purple-500 hover:bg-purple-600">
-                      Try FIT Score API
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 shadow-lg">
+                      Get API Access
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
-                    <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">
-                      View Documentation
+                    <Button size="lg" variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50">
+                      View API Docs
                     </Button>
                   </div>
                 </div>
-                <div className="relative animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-purple-100 dark:border-purple-900/30">
-                    <div className="flex flex-col items-center justify-center">
-                      <div className="flex items-center justify-center gap-8 mb-8">
-                        <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg text-center">
-                          <FileText className="h-12 w-12 text-purple-500 mx-auto mb-2" />
-                          <span className="text-sm text-gray-600 dark:text-gray-400">Resume</span>
+                <div className="relative animate-fade-in-up delay-200">
+                  <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 via-blue-400/5 to-transparent backdrop-blur-xl border border-blue-200/20 shadow-2xl">
+                    <div className="space-y-6">
+                      <div className="flex items-center justify-center gap-6">
+                        <div className="text-center">
+                          <FileText className="h-12 w-12 text-blue-500 mx-auto mb-2" />
+                          <span className="text-sm">Resume</span>
                         </div>
-                        <GitCompareArrows className="h-8 w-8 text-purple-400" />
-                        <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg text-center">
-                          <FileText className="h-12 w-12 text-purple-500 mx-auto mb-2" />
-                          <span className="text-sm text-gray-600 dark:text-gray-400">Job Description</span>
+                        <div className="relative">
+                          <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center">
+                            <Brain className="h-8 w-8 text-blue-500" />
+                          </div>
+                          <div className="absolute inset-0 bg-blue-500/5 rounded-full animate-ping"></div>
+                        </div>
+                        <div className="text-center">
+                          <FileText className="h-12 w-12 text-blue-500 mx-auto mb-2" />
+                          <span className="text-sm">Job Description</span>
                         </div>
                       </div>
-                      <div className="w-40 h-40 relative flex items-center justify-center">
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full opacity-10 animate-pulse"></div>
-                        <div className="absolute inset-2 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full opacity-20"></div>
-                        <div className="absolute inset-4 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-400/20 rounded-xl blur-xl"></div>
+                        <div className="relative bg-white/90 dark:bg-gray-800/90 p-6 rounded-xl shadow-lg">
                           <div className="text-center">
-                            <div className="text-4xl font-bold text-purple-600">87</div>
-                            <div className="text-sm font-medium text-gray-600 dark:text-gray-400">FIT Score</div>
+                            <div className="text-5xl font-bold text-blue-600 mb-2">87</div>
+                            <div className="text-gray-600 dark:text-gray-400">FIT Score</div>
                           </div>
                         </div>
                       </div>
