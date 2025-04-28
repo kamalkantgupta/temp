@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import NavbarWrapper from "@/components/NavbarWrapper";
@@ -15,27 +14,22 @@ import {
   LineChart, 
   Target, 
   LayoutDashboard,
-  BarChart, // Changed from BarChart2
-  Database as DatabaseIcon, // Aliased to avoid conflict
-  Clock as ClockIcon, // Aliased as ClockIcon
-  ShieldCheck, // Changed from Shield
-  Award as AwardIcon, // Aliased as AwardIcon
-  ServerStack // Changed from Server
+  BarChart, 
+  Database as DatabaseIcon,
+  Clock as ClockIcon,
+  ShieldCheck,
+  Award as AwardIcon,
+  Server
 } from "lucide-react";
 import ThemePaletteSwitcher from "@/components/ThemePaletteSwitcher";
 
 const FITScoreAgent = () => {
-  // Add state for demo email form
   const [demoEmail, setDemoEmail] = useState("");
-  
-  // Add handleDemoRequest function
+
   const handleDemoRequest = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send this to your backend
     console.log("Demo requested with email:", demoEmail);
-    // Clear the form
     setDemoEmail("");
-    // You could also show a success message with a toast
     alert("Demo request submitted successfully!");
   };
 
@@ -456,7 +450,7 @@ const FITScoreAgent = () => {
                 <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
                   <div className="flex items-center mb-6">
                     <div className="p-3 bg-white dark:bg-gray-800 rounded-full">
-                      <ServerStack className="h-6 w-6 text-purple-500" />
+                      <Server className="h-6 w-6 text-purple-500" />
                     </div>
                     <h3 className="font-bold text-xl ml-3">Recruitment Agencies</h3>
                   </div>
