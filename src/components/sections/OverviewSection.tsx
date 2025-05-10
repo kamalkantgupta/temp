@@ -35,7 +35,7 @@ const OverviewSection = ({
   ];
 
   return (
-    <section className="w-full py-16 bg-white dark:bg-gray-950">
+    <section className="w-full py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
@@ -48,10 +48,10 @@ const OverviewSection = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {features.map((feature, index) => (
-            <Card key={index} className="border-none bg-purple-50/50 dark:bg-purple-900/5 hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="border-none bg-gray-50 dark:bg-gray-800 hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
-                <div className="mb-4 bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                  <feature.icon className="h-6 w-6 text-purple-600" />
+                <div className="mb-4 bg-[var(--current-theme-light)] dark:bg-[var(--current-theme-color)]/20 p-3 rounded-lg w-12 h-12 flex items-center justify-center">
+                  <feature.icon className="h-6 w-6 text-[var(--current-theme-color)]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
                   {feature.title}
