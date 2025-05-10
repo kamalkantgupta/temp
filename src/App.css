@@ -46,3 +46,31 @@
 .button-outline:hover {
   background-color: var(--current-theme-light);
 }
+
+/* Grid background enhancement */
+.grid-bg {
+  position: relative;
+}
+
+.grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, var(--current-theme-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--current-theme-color) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.dark .grid-bg::before {
+  opacity: 0.1;
+}
+
+/* Make sure content is positioned properly */
+.grid-bg > * {
+  position: relative;
+  z-index: 1;
+}

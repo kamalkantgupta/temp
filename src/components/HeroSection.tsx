@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 
 const HeroSection = () => {
   return (
-    <section className="w-full py-24 px-6 md:px-10 bg-white dark:bg-gray-900">
+    <section className="w-full py-24 px-6 md:px-10 bg-white dark:bg-gray-900 grid-bg">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 max-w-3xl animate-fade-in-up">

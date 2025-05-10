@@ -21,21 +21,21 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex space-x-6">
-              <a href="#products" className="font-medium text-gray-600 hover:text-purple-600 transition-colors dark:text-gray-300 dark:hover:text-purple-400">
+              <a href="#products" className="font-medium text-gray-600 hover:text-[var(--current-theme-color)] transition-colors dark:text-gray-300 dark:hover:text-[var(--current-theme-color)]">
                 Products
               </a>
-              <a href="#agents" className="font-medium text-gray-600 hover:text-purple-600 transition-colors dark:text-gray-300 dark:hover:text-purple-400">
+              <a href="#agents" className="font-medium text-gray-600 hover:text-[var(--current-theme-color)] transition-colors dark:text-gray-300 dark:hover:text-[var(--current-theme-color)]">
                 AI Agents
               </a>
-              <a href="#why" className="font-medium text-gray-600 hover:text-purple-600 transition-colors dark:text-gray-300 dark:hover:text-purple-400">
+              <a href="#why" className="font-medium text-gray-600 hover:text-[var(--current-theme-color)] transition-colors dark:text-gray-300 dark:hover:text-[var(--current-theme-color)]">
                 Why Us
               </a>
             </nav>
             <div className="flex space-x-3">
-              <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50 dark:border-purple-700 dark:text-purple-400 dark:hover:bg-purple-900/20">
+              <Button variant="outline" className="border-[var(--current-theme-light)] text-[var(--current-theme-color)] hover:bg-[var(--current-theme-light)] dark:border-gray-700 dark:text-[var(--current-theme-color)] dark:hover:bg-gray-800">
                 Contact Us
               </Button>
-              <Button className="bg-purple-500 hover:bg-purple-600 text-white">
+              <Button className="bg-[var(--current-theme-color)] hover:bg-[var(--current-theme-hover)] text-white">
                 Try WT-Sheets Now
               </Button>
             </div>
@@ -43,7 +43,7 @@ const Navbar = () => {
 
           <button 
             onClick={toggleMenu}
-            className="md:hidden text-gray-600 hover:text-purple-600 focus:outline-none dark:text-gray-300"
+            className="md:hidden text-gray-600 hover:text-[var(--current-theme-color)] focus:outline-none dark:text-gray-300"
           >
             <Menu className="h-6 w-6" />
           </button>
@@ -55,31 +55,31 @@ const Navbar = () => {
             <nav className="flex flex-col space-y-4">
               <a 
                 href="#products" 
-                className="font-medium text-gray-600 hover:text-purple-600 transition-colors dark:text-gray-300 dark:hover:text-purple-400"
+                className="font-medium text-gray-600 hover:text-[var(--current-theme-color)] transition-colors dark:text-gray-300 dark:hover:text-[var(--current-theme-color)]"
                 onClick={() => setIsOpen(false)}
               >
                 Products
               </a>
               <a 
                 href="#agents" 
-                className="font-medium text-gray-600 hover:text-purple-600 transition-colors dark:text-gray-300 dark:hover:text-purple-400"
+                className="font-medium text-gray-600 hover:text-[var(--current-theme-color)] transition-colors dark:text-gray-300 dark:hover:text-[var(--current-theme-color)]"
                 onClick={() => setIsOpen(false)}
               >
                 AI Agents
               </a>
               <a 
                 href="#why" 
-                className="font-medium text-gray-600 hover:text-purple-600 transition-colors dark:text-gray-300 dark:hover:text-purple-400"
+                className="font-medium text-gray-600 hover:text-[var(--current-theme-color)] transition-colors dark:text-gray-300 dark:hover:text-[var(--current-theme-color)]"
                 onClick={() => setIsOpen(false)}
               >
                 Why Us
               </a>
             </nav>
             <div className="flex flex-col space-y-3 mt-4">
-              <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50 w-full dark:border-purple-700 dark:text-purple-400 dark:hover:bg-purple-900/20">
+              <Button variant="outline" className="border-[var(--current-theme-light)] text-[var(--current-theme-color)] hover:bg-[var(--current-theme-light)] w-full dark:border-gray-700 dark:text-[var(--current-theme-color)] dark:hover:bg-gray-800">
                 Contact Us
               </Button>
-              <Button className="bg-purple-500 hover:bg-purple-600 text-white w-full">
+              <Button className="bg-[var(--current-theme-color)] hover:bg-[var(--current-theme-hover)] text-white w-full">
                 Try WT-Sheets Now
               </Button>
             </div>
