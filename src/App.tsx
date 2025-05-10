@@ -8,11 +8,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ResumeParserLearnMore from "./pages/ResumeParserLearnMore";
-import WTSheets from "./pages/WTSheets";
-import FITScoreAgent from "./pages/FITScoreAgent";
-import ResumeParserAgent from "./pages/ResumeParserAgent";
-import QuestionAPI from "./pages/QuestionAPI";
 
 const queryClient = new QueryClient();
 
@@ -59,11 +54,6 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/resume-parser" element={<ResumeParserLearnMore />} />
-              <Route path="/wt-sheets" element={<WTSheets />} />
-              <Route path="/fit-score-agent" element={<FITScoreAgent />} />
-              <Route path="/resume-parser-agent" element={<ResumeParserAgent />} />
-              <Route path="/question-api" element={<QuestionAPI />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
